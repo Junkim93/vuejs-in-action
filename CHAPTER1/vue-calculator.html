@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js 계산기</title>
+    <style>
+      p,
+      input {
+        font-family: monospace;
+      }
+      p {
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p>x <input v-model="x" /></p>
+      <p>y <input v-model="y" /></p>
+      <p>------------------------</p>
+      <button type="text" @click="test"></button>
+      <p>= <span v-text="result"></span></p>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+      function isNotNumericValue(value) {
+        return isNaN(value) || !isFinite(value)
+      }
+
+      var calc = new Vue({
+        el: '#app',
+
+        data() {
+          return {
+            x: 0,
+            y: 0,
+            lastResult: 0,
+          }
+        },
+
+        computed: {
+          result() {
+            let x = parseFloat(this.x)
+            if (isNotNumericValue(x)) return this.lastResult
+            let y = parseFloat(this.y)
+            if (isNotNumericValue(y)) return this.lastResult
+
+            this.lastResult = x + y
+
+            return this.lastResult
+          },
+        },
+
+        methods: {
+          test() {
+            console.log('test')
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
