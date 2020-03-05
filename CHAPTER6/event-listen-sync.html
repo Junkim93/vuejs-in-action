@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ counter }}<br />
+      <button @click="incrementCounter">카운터 증가</button>
+      <my-component :my-counter.sync="counter"></my-component>
+    </div>
+
+    <script>
+      const MyComponent = {
+        props: ['myCounter'],
+        template: `<div>
+          <button @click="childIncrementCounter">자식으로부터 증가</button>
+        </div>`,
+        methods: {
+          childIncrementCounter() {
+            this.$emit('update:myCounter', this.myCounter + 1);
+            // 자식 컴포넌트에서 props로 받은 myCounter에 +1 한 값을 반환한다
+            // 부모 컴포넌트의 counter에 this.myCounter + 1 값을 할당한다
+          },
+        },
+      };
+
+      new Vue({
+        el: '#app',
+        components: { 'my-component': MyComponent },
+
+        data() {
+          return {
+            counter: 0,
+          };
+        },
+        methods: {
+          incrementCounter() {
+            this.counter += 1;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
