@@ -1,0 +1,103 @@
+h3 {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+form {
+  background-color: lightgray;
+  padding: 5px;
+}
+
+#app {
+  display: block;
+  margin: 0 auto;
+  width: 720px;
+  height: 100%;
+}
+
+.app-header {
+  display: flex;
+  background-color: green;
+  color: white;
+  padding: 0 20px;
+  height: 150px;
+  align-items: center;
+}
+
+.app-header__title {
+  font-size: 30px;
+}
+
+.app-header__checkout {
+  display: block;
+  margin-left: auto;
+}
+
+.app-body__product {
+  display: flex;
+  padding: 20px;
+}
+
+.app-body__product__image {
+  width: 260px;
+}
+
+.app-body__product__info {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.app-body__product__info-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.app-body__product__info-description {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.app-body__product__info-price {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+.app__checkout > header {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.order-info {
+  padding: 30px 0;
+  background-color: yellowgreen;
+  line-height: 25px;
+}
+
+.form-divide-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-divide-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-align-center {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-align-center > button {
+  display: block;
+  margin: 0 auto;
+}

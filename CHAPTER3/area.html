@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area</title>
+    <script
+      src="https://unpkg.com/vue/dist/vue.js"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        넓이:
+      </p>
+      <p>
+        <button @click="length += 1">세로 추가</button>
+        <button @click="width += 1">가로 추가</button>
+      </p>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#app',
+
+        data() {
+          return {
+            length: 5,
+            width: 5,
+          }
+        },
+
+        computed: {
+          area() {
+            return this.width * this.length
+          },
+        },
+
+        watch: {
+          length(newVal, oldVal) {
+            console.log(
+              '이전 세로 길이: ' + oldVal + '\n새 세로 길이: ' + newVal
+            )
+          },
+          width(newVal, oldVal) {
+            console.log(
+              '이전 가로 길이: ' + oldVal + '\n새 가로 길이: ' + newVal
+            )
+          },
+          area(newVal, oldVal) {
+            console.log('이전 넓이: ' + oldVal + '\n새 넓이: ' + newVal)
+          },
+        },
+
+        beforeUpdate() {
+          console.log(`데이터 변경은 결괏값 변경 이전에 이루어졌습니다.`)
+        },
+      })
+    </script>
+  </body>
+</html>
